@@ -10,29 +10,20 @@ class Solution {
         {
             total +=nums[i];  
         } 
+
            left[0]=0;
            right[0]=total;
-           int j=1;
+           int j=0;
          for(int i=1;i<n;i++)
         {
            left[i]=left[i-1]+nums[i-1];
-
            right[i]=total-left[i];
-      
+           res[j]=Math.abs(left[j]-(nums[j]*j))+Math.abs ( (right[j]-(nums[j]*(n-j))) );
+           j++;
         } 
-         for(int i=0;i<n;i++)
-        {
-           System.out.print(left[i]+" ");
-        } 
-                     System.out.println();
-        for(int i=0;i<n;i++)
-        {
-           System.out.print(right[i]+" ");
-        } 
-      for(int i=0;i<n;i++)
-      {
-         res[i]=Math.abs(left[i]-(nums[i]*i))+Math.abs ( (right[i]-(nums[i]*(n-i))) );
-      }
+        System.out.println(left[n-1]+" "+right[n-1]);
+         res[n-1]=Math.abs(left[n-1]-(nums[n-1]*(n-1)))+Math.abs ( (right[n-1]-(nums[n-1])) );
+     
   return res;
     }
 }
