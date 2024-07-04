@@ -21,7 +21,7 @@ class Solution {
            res[j]=Math.abs(left[j]-(nums[j]*j))+Math.abs ( (right[j]-(nums[j]*(n-j))) );
            j++;
         } 
-        System.out.println(left[n-1]+" "+right[n-1]);
+       
          res[n-1]=Math.abs(left[n-1]-(nums[n-1]*(n-1)))+Math.abs ( (right[n-1]-(nums[n-1])) );
      
   return res;
