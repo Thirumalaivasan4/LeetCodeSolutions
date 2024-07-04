@@ -5,22 +5,14 @@ class Solution {
         int right[]=new int[n];
         int res[]=new int[n];
         left[0]=0;
-         System.out.print(left[0]+" ");
       for(int i=1;i<n;i++)
       {
        left[i]=left[i-1]+nums[i-1];
-       System.out.print(left[i]+" ");
       } 
-      System.out.println();
-
-
-    
-       right[n-1]=nums[n-1];
- System.out.print(right[n-1]+" ");
+      right[n-1]=nums[n-1];
        for(int i=n-2;i>=0;i--)
       {
        right[i]=right[i+1]+nums[i];
-        System.out.print(right[i]+" ");
       } 
      
 
