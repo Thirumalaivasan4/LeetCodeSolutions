@@ -19,7 +19,7 @@ public class Solution {
         if (n == 1) {
             return true;  
         }
-        if (count >= 10) {
+        if (count >= 8) {
             return false;  
         }
         int a = changer(n);  
