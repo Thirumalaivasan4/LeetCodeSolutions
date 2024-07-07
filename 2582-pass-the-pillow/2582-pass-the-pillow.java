@@ -1,24 +1,13 @@
 class Solution {
     public int passThePillow(int n, int t) 
     {   
-        if(t<n)
-        {
-            return t+1;
-        }
-        else
-        {
-        if(t%n==0)
-        {
-            return n-1;
-        }  
-        int r=t%n;
-        int q=t/n;
+        int r=t%(n-1);
+        int q=t/(n-1);
 
-        if(r>q)
+        if(q%2==0)
         {
-            return n-r-q;
+            return r+1;
         }   
-            return n-r+q;                                                                  
+            return n-r;                                                              
         }
     }                                         
-}
