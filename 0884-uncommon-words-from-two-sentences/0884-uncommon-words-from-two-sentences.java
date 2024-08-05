@@ -1,35 +1,37 @@
 class Solution {
     public String[] uncommonFromSentences(String s1, String s2) {
            HashSet<String> set=new HashSet<>();
-           HashSet<String> copy=new HashSet<>();
-           for(String s:s1.split(" "))
-           {
-               if(set.contains(s))
+
+           HashMap<String,Integer> map1=new HashMap<>();
+            for(String s:s1.split(" "))
             {
-                    set.remove(s);
-                  }
-                  else{
-                      set.add(s);
-                  }
-                  copy.add(s);
-           } 
+                map1.put(s,map1.getOrDefault(s,0)+1);
+            }
+
+           HashMap<String,Integer> map2=new HashMap<>();
            for(String s:s2.split(" "))
            {
-            if(set.contains(s))
+                map2.put(s,map2.getOrDefault(s,0)+1);
+           }
+
+        for(String s:map1.keySet())
+        {
+            if(!map2.containsKey(s)&&map1.get(s)==1)
             {
-                    set.remove(s);
+                set.add(s);
             }
-            if(copy.contains(s))
+        }
+        for(String s:map2.keySet())
+        {
+            if(!map1.containsKey(s)&&map2.get(s)==1)
             {
-                set.remove(s);
+                set.add(s);
             }
-            else{
-                      set.add(s);
-            }
-           } 
+        }
            String str[]=new String[set.size()];
            int i=0;
-           for(String a:set){
+           for(String a:set)
+           {
                str[i++]=a;
            }
            return str;
