@@ -3,32 +3,27 @@ class Solution {
      HashMap<String,Integer> map=new HashMap<>();
      
      for(int i=0;i<arr.length;i++)
-     {
+     {  
+
         String str= arr[i];
-        if(map.containsKey(str)){
+        if(map.containsKey(str))
+        {
             map.put(str,map.get(str)+1);
-            
         }
-        else{
+        else
+        {
             map.put(str,1);
         }
-
+      
      }
-    String s="";
-    int c=1;
-
-    for(Map.Entry<String,Integer> entry:map.entrySet())
-    {
-        
-        if(entry.getValue()==1&&c==k)
-        {
-            s=entry.getKey(); 
+    System.out.println(map);
+    for(String s:arr){
+        if(map.get(s)==1){
+            if(k==1)
+             return s;
+            k--;
         }
-        if(entry.getValue()==1)
-        {
-                c++;
-        }
-    } 
-    return s; 
+    }
+    return "";
     }
 }
