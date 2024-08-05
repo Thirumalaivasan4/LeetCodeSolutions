@@ -1,29 +1,32 @@
 class Solution {
     public String kthDistinct(String[] arr, int k) {
-     HashMap<String,Integer> map=new HashMap<>();
-     
+     HashMap<String,Integer> map=new LinkedHashMap<>();
+     int c=1;
      for(int i=0;i<arr.length;i++)
-     {  
-
+     {
         String str= arr[i];
-        if(map.containsKey(str))
-        {
-            map.put(str,map.get(str)+1);
-        }
-        else
-        {
-            map.put(str,1);
-        }
-      
+        map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+
      }
-    System.out.println(map);
-    for(String s:arr){
-        if(map.get(s)==1){
-            if(k==1)
-             return s;
-            k--;
+    String s="";
+
+    for(Map.Entry<String,Integer> entry:map.entrySet())
+    {
+        if(entry.getValue()==1)
+        {
+
+        if(c==k)
+        {
+            s=entry.getKey();
+            return s;
+
         }
-    }
-    return "";
+
+  c++;
+        }
+        
+    } 
+
+    return s; 
     }
 }
